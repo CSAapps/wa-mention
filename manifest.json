@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+
+    "name": "WhatsApp Mention",
+    "description": "Mention WhatsApp group members quickly",
+    "version": "1.0",
+    "author": "CSA Apps",
+
+    "permissions": [
+        "activeTab",
+        "nativeMessaging"
+    ],
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+
+    "icons": { "48": "icon.png" }
+}
