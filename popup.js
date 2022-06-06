@@ -4,13 +4,14 @@ function elmnt(id) {
     return document.getElementById(id);
 }
 
-function runScript(script) {
-    chrome.tabs.executeScript({
-            file: script
-        },
-        function() {
-            //chrome.runtime.lastError;  
-        });
+async function runScript(script) {
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: [script]
+    }, function () {
+        //chrome.runtime.lastError;  
+    });
 }
 
 function mention_one() {
