@@ -9,7 +9,7 @@ function addListeners() {
         for (var i = 0; i < msges.length; i++) {
             var msg = msges[i];
 
-            var senderBox = msg.querySelector("._1B9Rc");
+            var senderBox = msg.querySelector(".a71At");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
                     const member = this.textContent;
@@ -17,7 +17,7 @@ function addListeners() {
                 }
             }
 
-            senderBox = msg.querySelector("._3Whw5");
+            senderBox = msg.querySelector("._1BUvv");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
                     const member = this.textContent;
