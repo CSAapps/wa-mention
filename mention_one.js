@@ -1,7 +1,6 @@
 var types = { one: 1, one_rst: 0, all: 3, all_stop: 2, err: -1 };
 
-var chatWindow = document.getElementsByClassName("z_tTQ")[0];
-var chatInput = document.getElementsByClassName("_3FRCZ ")[1];
+var chatWindow = document.getElementsByClassName("_33LGR")[0];
 
 function addListeners() {
     try {
@@ -10,9 +9,9 @@ function addListeners() {
         for (var i = 0; i < msges.length; i++) {
             var msg = msges[i];
 
-            var senderBox = msg.querySelector("._3UUTc");
+            var senderBox = msg.querySelector("._1B9Rc");
             if (senderBox) {
-                senderBox.onmouseenter = function() {
+                senderBox.onmouseenter = function () {
                     const member = this.textContent;
                     chrome.runtime.sendMessage({ type: types.one, m: member });
                 }
@@ -20,7 +19,7 @@ function addListeners() {
 
             senderBox = msg.querySelector("._3Whw5");
             if (senderBox) {
-                senderBox.onmouseenter = function() {
+                senderBox.onmouseenter = function () {
                     const member = this.textContent;
                     chrome.runtime.sendMessage({ type: types.one, m: member });
                 }
