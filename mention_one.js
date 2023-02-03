@@ -12,7 +12,7 @@ function addListeners() {
             var senderBox = msg.querySelector(".a71At");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
-                    const member = this.textContent;
+                    const member = this.textContent.split(' ')[0];
                     chrome.runtime.sendMessage({ type: types.one, m: member });
                 }
             }
@@ -20,7 +20,7 @@ function addListeners() {
             senderBox = msg.querySelector("._1BUvv");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
-                    const member = this.textContent;
+                    const member = this.textContent.split(' ')[0];
                     chrome.runtime.sendMessage({ type: types.one, m: member });
                 }
             }

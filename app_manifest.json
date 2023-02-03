@@ -1,1 +1,9 @@
-{"name": "csa.apps.wa.mention", "description": "Mention WhatsApp group members quickly", "path": "E:\\VisualStudio2017\\CS\\WhatsAppMention\\WhatsAppMention\\bin\\x64\\Debug\\WhatsAppMention.exe", "type": "stdio", "allowed_origins": ["chrome-extension://gcdahibjdiphgldcjclcceojdbconlim/"]}
+{
+    "name": "csa.apps.wa.mention",
+    "description": "Mention WhatsApp group members quickly",
+    "path": "E:\\VisualStudio2017\\CS\\WhatsAppMention\\WhatsAppMention\\bin\\x64\\Debug\\WhatsAppMention.exe",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://gcdahibjdiphgldcjclcceojdbconlim/"
+    ]
+}
