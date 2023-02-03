@@ -10,7 +10,7 @@ function send(data) {
         mentionedSet.add(data);
         chrome.runtime.sendNativeMessage(
             "csa.apps.wa.mention", { m: '@' + data },
-            function(response) {
+            function (response) {
                 canSend = true;
                 console.log(response);
             });
@@ -20,29 +20,34 @@ function send(data) {
 }
 
 function sendAll() {
-    if (group.i < group.m.length - 1) {
-        chrome.runtime.sendNativeMessage(
-            "csa.apps.wa.mention", { m: '@' + group.m[group.i++] },
-            function(response) {
-                console.log(response);
-                sendAll();
-            });
+    if (group.i < group.m.length) {
+        if (group.m[group.i] != "You") {
+            chrome.runtime.sendNativeMessage(
+                "csa.apps.wa.mention", { m: '@' + group.m[group.i++] },
+                function (response) {
+                    console.log(response);
+                    sendAll();
+                });
+        } else {
+            group.i++;
+            sendAll();
+        }
     } else canSend = true;
 }
 
-mention[types.one] = function(m) {
+mention[types.one] = function (m) {
     if (!mentionedSet.has(m)) {
         send(m);
         console.log("mention one" + m);
     }
 }
 
-mention[types.one_rst] = function(m) {
+mention[types.one_rst] = function (m) {
     mentionedSet.clear();
     console.log("mention one rst");
 }
 
-mention[types.all] = function(m) {
+mention[types.all] = function (m) {
     console.log("mention all");
     group.i = 0;
     group.m = m.split(', ');
@@ -50,18 +55,18 @@ mention[types.all] = function(m) {
     sendAll();
 }
 
-mention[types.all_stop] = function(m) {
+mention[types.all_stop] = function (m) {
     console.log("mention all stop");
     group.i = group.m.length;
 }
 
-mention[types.err] = function(m) {
+mention[types.err] = function (m) {
     console.log("ERROR:");
     console.log(m);
 }
 
 
-chrome.runtime.onMessage.addListener(function(data) {
+chrome.runtime.onMessage.addListener(function (data) {
     console.log('PAGE: ');
     console.log(data);
     mention[data.type](data.m);
