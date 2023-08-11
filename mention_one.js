@@ -1,6 +1,6 @@
 var types = { one: 1, one_rst: 0, all: 3, all_stop: 2, err: -1 };
 
-var chatWindow = document.getElementsByClassName("_33LGR")[0];
+var chatWindow = document.getElementsByClassName("_5kRIK")[0];
 
 function addListeners() {
     try {
@@ -9,15 +9,16 @@ function addListeners() {
         for (var i = 0; i < msges.length; i++) {
             var msg = msges[i];
 
-            var senderBox = msg.querySelector(".a71At");
+            var senderBox = msg.querySelector("._3FuDI");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
                     const member = this.textContent.split(' ')[0];
+                    console.log(member);
                     chrome.runtime.sendMessage({ type: types.one, m: member });
                 }
             }
 
-            senderBox = msg.querySelector("._1BUvv");
+            senderBox = msg.querySelector("._2ne0X");
             if (senderBox) {
                 senderBox.onmouseenter = function () {
                     const member = this.textContent.split(' ')[0];
