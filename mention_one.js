@@ -36,7 +36,10 @@ function addListeners() {
 
 }
 
-chatWindow.addEventListener('DOMSubtreeModified', addListeners, false);
+// chatWindow.addEventListener('DOMSubtreeModified', addListeners, false);
+
+var observer = new MutationObserver(addListeners);
+observer.observe(chatWindow, { childList: true, subtree: true });
 addListeners();
 
 var input = document.querySelectorAll('div[contenteditable="true"]')[1];

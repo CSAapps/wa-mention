@@ -15,7 +15,7 @@ function send(data) {
                 console.log(response);
             });
     } else {
-        alert("Wait");
+        console.log("Wait");
     }
 }
 
